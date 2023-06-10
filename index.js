@@ -1,17 +1,12 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from "react";
 
-export const useOnline = () => { 
-    if (typeof window === undefined || typeof navigator === undefined) {
-        return {     
-            isOffline: null,
-            isOnline: null,
-            error: "useIsOnline meant to be used only in a browser environment."
-        };    
-    }
+const useOnline = () => {
+    
+    const [isOnline, setIsOnline] = useState(window.navigator.onLine ?? true);
+    const [error, setError] = useState (null);
 
-    const [isOnline, setIsOnline] = useState(window.navigator.onLine ?? true);         
     useEffect(() => {
-        const handOnline = () => {
+        const handleOnline = () => {
             setIsOnline(true);
         };
 
@@ -19,32 +14,39 @@ export const useOnline = () => {
             setIsOnline(false);
         };
 
-        window.addEventListener('online', handOnline);
-        window.addEventListener('offline', handleOffline);
+        window.addEventListener("online", handleOnline);
+        window.addEventListener("offline", handleOffline);
 
         return () => {
-            window.removeEventListener('online', handOnline);
-            window.removeEventListener('offline', handleOffline);
+            window.removeEventListener("online", handleOnline);
+            window.removeEventListener("offline", handleOffline);
         };
+
     }, []);
 
-    return {     
-        isOffline: !isOnline,
-        isOnline: isOnline,
-        error: null
+    const checkConnectivity = () => {
+        fetch('https://www.google.com/', { mode: 'no-cors' })
+        .then(() => setIsOnline(true && window.navigator.onLine))
+        .catch((error) => {
+            setIsOnline(false);
+            setError(error);
+        });
     };
-}
 
-export const useOnlineNotification = ({handOnline, handleOffline}) => { 
-    
-    useEffect(() => {
-        window.addEventListener('online', handOnline);
-        window.addEventListener('offline', handleOffline);
-        return () => {
-            window.removeEventListener('online', handOnline);
-            window.removeEventListener('offline', handleOffline);
+    if (typeof window === "undefined" || typeof navigator === "undefined") {
+        return {
+            isOnline: null,
+            isOffline: null,
+            error: "react-use-online meant to be used only in a browser environment.",
         };
-    }, []);
+    }
+    
+    return {
+        isOnline: isOnline,
+        isOffline: !isOnline,
+        checkConnectivity: checkConnectivity,
+        error: error
+    };
+};
 
-    return (window.navigator.onLine !== undefined && window.navigator.onLine != null )
-}
+export default useOnline

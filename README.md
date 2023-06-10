@@ -1,61 +1,49 @@
-# useOnline
+# react-use-online
 
-Simple React Hook for storing connectivity to the internet for browser environment.
+Simple React Hook for the browser environment for storing connectivity to the internet.
 
 Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
 ## Installation
-
-#### Installing with NPM 
-
-```
-npm i react-useOnline 
-```
-## Examples
-
-Using useOnline to display connectivity with react-icons. 
-
-```javascript
-import React from 'react';
-import { useOnline } from 'react-useOnline';
-import { BsWifi, BsWifiOff } from "react-icons/bs";
-
-const App = () => {
-    const { isOnline, error } = useOnline();
-    const WifiIcon = () => isOnline ? <BsWifi/> : <BsWifiOff/>;
-
-  if (error) return <p>{error}</p>
-  return (
-    <WifiIcon/>
-  );
-};
-```
-
-Using useOnline to enable certain features based on connectivity.
-
-
-```javascript
-import React, { Fragment } from 'react';
-import { useIsOnline } from 'react-use-is-online';
-import OnlineFeature from './OnlineFeature';
-import OfflineFeature from './OfflineFeature';
-
-
-const App = () => {
-  const { isOnline, error } = useIsOnline();
-
-  if (error) return <p>{error}</p>
-  return (
-  	isOnline ? <OnlineFeature /> : <OfflineFeature/>
-  );
-};
+```shell
+npm i react-use-online
 ```
 ## Hook
 
 #### Returns
 
-isOnline - Whether there is connectivity to the internet ```[true | false | null]```
+isOnline - Whether there is connection to the internet ```[true | false | null]```
 
-isOffline - Whether there is no connectivity to the internet ```[false | true | null]```
+isOffline - Whether there is no connection to the internet ```[false | true | null]```
+
+checkConnectivity - function that checks connection to the web and updates the hook
 
 error - Error string. Used for checking if the hook is used in browser environment and for some other errors ```[null | string]```
+
+## Example
+
+Using useOnline to display connectivity with react-icons. 
+
+```javascript
+import React from "react";
+import useOnline from "react-use-online";
+
+const App = () => {
+  const { isOnline, error, checkConnectivity } = useOnline();
+
+  return (
+    <div>
+      <h1>Internet Connectivity</h1>
+      {isOnline ? (
+        <p>You are currently online.</p>
+      ) : (
+        <p>You are currently offline.</p>
+      )}
+      {error && <p>An error occurred: {error.message}</p>}
+      <button onClick={checkConnectivity}>Check Connectivity</button>
+    </div>
+  );
+};
+
+export default App;
+```

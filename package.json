@@ -1,5 +1,5 @@
 {
-  "name": "useOnline",
+  "name": "react-use-online",
   "private": false,
   "version": "0.1.0",
   "description": "A react hook for watching device connectivity status",
