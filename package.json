@@ -2,7 +2,7 @@
   "name": "react-use-online",
   "homepage": "https://github.com/romanbr87/react-use-online/",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React custom hook for watching device connectivity status in the browser environment",
   "main": "index.js",
   "scripts": {
