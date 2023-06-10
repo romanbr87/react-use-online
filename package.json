@@ -1,10 +1,38 @@
 {
-    "name": "useOnline",
-    "version": "0.1.0",
-    "description": "This package checks whether your computer/device is connected to the internet or not",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  "name": "useOnline",
+  "private": false,
+  "version": "0.1.0",
+  "description": "A react hook for watching device connectivity status",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romanbr87/useOnline.git"
+  },
+  "keywords": [
+    "react",
+    "react-hook",
+    "react-hooks",
+    "is-online",
+    "is-offline",
+    "react-is-online",
+    "react-is-offline",
+    "react-online",
+    "react-offline",
+    "online",
+    "offline",
+    "online-offline",
+    "offline-online",
+    "if-online",
+    "if-offline",
+    "react-internet-connection",
+    "react-connection",
+    "react-wifi",
+    "wifi",
+    "internet-connected",
+     "wifi-connected"  
+   ],
     "author": "Roman Braverman"
-  }
+}
