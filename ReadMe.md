@@ -55,5 +55,7 @@ const App = () => {
 #### Returns
 
 isOnline - Whether there is connectivity to the internet ```[true | false | null]```
+
 isOffline - Whether there is no connectivity to the internet ```[false | true | null]```
+
 error - Error string. Used for checking if the hook is used in browser environment and for some other errors ```[null | string]```
