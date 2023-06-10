@@ -24,7 +24,7 @@ const App = () => {
     const { isOnline, error } = useOnline();
     const WifiIcon = () => isOnline ? <BsWifi/> : <BsWifiOff/>;
 
-  if (error) return <p>{error}
+  if (error) return <p>{error}</p>
   return (
     <WifiIcon/>
   );
@@ -44,7 +44,7 @@ import OfflineFeature from './OfflineFeature';
 const App = () => {
   const { isOnline, error } = useIsOnline();
 
-  if (error) return <p>{error}
+  if (error) return <p>{error}</p>
   return (
   	isOnline ? <OnlineFeature /> : <OfflineFeature/>
   );
