@@ -1,15 +1,16 @@
 {
   "name": "react-use-online",
+  "homepage": "https://github.com/romanbr87/react-use-online/",
   "private": false,
   "version": "0.1.0",
-  "description": "A react hook for watching device connectivity status",
+  "description": "React custom hook for watching device connectivity status in the browser environment",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romanbr87/useOnline.git"
+    "url": "git+https://github.com/romanbr87/react-use-online.git"
   },
   "keywords": [
     "react",
@@ -32,7 +33,7 @@
     "react-wifi",
     "wifi",
     "internet-connected",
-     "wifi-connected"  
-   ],
-    "author": "Roman Braverman"
+    "wifi-connected"
+  ],
+  "author": "Roman Braverman"
 }

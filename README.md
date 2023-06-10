@@ -1,6 +1,6 @@
 # react-use-online
 
-Simple React Hook for the browser environment for storing connectivity to the internet.
+React custom hook for watching device connectivity status in the browser environment.
 
 Read about [Hooks](https://reactjs.org/docs/hooks-intro.html) feature.
 
