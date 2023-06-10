@@ -35,5 +35,14 @@
     "internet-connected",
     "wifi-connected"
   ],
-  "author": "Roman Braverman"
+  "author": {
+    "name": "Roman Braverman",
+    "email": "romanbr87@gmail.com"
+  },
+  "files": [
+    "./"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
 }
